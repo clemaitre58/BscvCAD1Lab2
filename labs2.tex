@@ -1,0 +1,137 @@
+\documentclass[12pt]{TDTP}
+
+
+\newcommand{\auteur}{C\'edric Lemaitre}
+\newcommand{\couriel}{c.lemaitre58@gmail.com}
+\newcommand{\promo}{Bachelor in Computer Vision}
+\newcommand{\annee}{2018-2019}
+\newcommand{\matiere}{Computer Aided Design 1}
+
+\newcommand{\tdtp}{Practice}
+\renewcommand{\sujet}{Intro to Matlab}
+
+
+\begin{document}
+\titre
+
+\textbf{NOTE}\\
+For each problem you shall create a script, for example \texttt{problem1.m}, containing all commands to answer the questions.
+
+
+%%%%%%%%%%%%
+\Exo
+Find a MATLAB one-line expression to cretae the $n\times n$ matrix $A$ satisfying
+$$
+a_{ij} = 
+\begin{cases}
+   1 & \text{if } i-j \text{ is prime} \\
+   0  & \text{otherwise}
+ \end{cases}
+$$
+
+%%%%%%%%%%%%
+\Exo
+\textbf{Friday  the 13th}\\
+Friday the 13th is unlucky (in many cultures), but is it unlikely?
+What's the probability that the 13th day of any month falls on a Friday?
+The quick answer is 1/7, but this is not quite right.
+
+Write a MATLAB code that counts the number of times that Friday occurs on the various weekdays in a 400 year Gregorian calendar cycle, for example from the year 1601 to the yera 2000.
+
+\bigskip
+\textbf{NOTE}:\\
+The MATLAB function \textbf{clock} returns a six-element vector $c$ with elements
+\begin{verbatim}
+c(1) = year
+c(2) = month
+c(3) = day
+c(4) = hour
+c(5) = minute
+c(6) = seconds
+\end{verbatim}
+
+The first five elements are integers, while the sixth element has a fractional part that is accurate to milliseconds. 
+The best way to print a \textbf{clock} vector is to use \textbf{fprintf} or \textbf{sprintf} with a specified format string that has both integer and floating point fields.
+
+\begin{verbatim}
+f = '%6d %6d %6d %6d %6d %9.3f\n'
+\end{verbatim}
+
+On September 10th, 2014 at 3:15 pm, the following commands
+
+\begin{verbatim}
+c = clock;
+fprintf(f,c);
+\end{verbatim}
+
+produces
+
+\begin{verbatim}
+2014	9	10	15	15	30.543
+\end{verbatim}
+
+In otrher words,
+
+\begin{verbatim}
+year = 2014
+month = 9
+day = 10
+hour = 15
+minute = 15
+seconds = 30.543
+\end{verbatim}
+
+The MATLAB functions \textbf{datenum}, \textbf{datevec}, \textbf{datestr}, and \textbf{weekday} use \textbf{clock} and facts about the Gregorian calendar to facilitate computations involving calendar dates.
+You migh want to use them to solve the problem.
+
+%%%%%%%%%%%%
+\Exo
+Given the following function
+$$
+s = a \cos(\phi) + \sqrt{b^2 - (a\sin(\phi)-c)^2}
+$$
+Plot $s$ as a function of the angle $\phi$ when $a=1$, $b=1.5$, $c=0.3$, and $0\leq \phi \leq 360°$.
+
+%%%%%%%%%%%%
+\Exo
+Plot the following parametric functions (you will use the \textbf{axis equal }command after your \textbf{plot} command to force MATLAB to make the x-axis and y-axis the same lenght):
+\begin{itemize}
+\item A circle of radius 5
+\item \textit{Leminscate} ($-\pi/4 \leq \phi \leq \pi/4$)
+\begin{align*}
+x &= \cos(\phi) \sqrt{2\cos(2\phi)} \\
+y &= \sin(\phi) \sqrt{2\cos(2\phi)}
+\end{align*}
+
+\item \textit{Logarithmic Spiral} ($0 \leq \phi \leq 6\pi; \; k=0.1$)
+\begin{align*}
+x &= e^{k\phi}\cos(\phi) \\
+y &= e^{k\phi}\sin(\phi) 
+\end{align*}
+
+\end{itemize}
+%%%%%%%%%%%%
+\Exo
+Plot the following 3D curves using \textbf{plot3} function:
+\begin{itemize}
+\item \textit{Spherical helix}
+\begin{align*}
+x &= \sin(\frac{t}{2c}) \cos(t) \\
+y &= \sin(\frac{t}{2c}) \sin(t) \\
+z &= \cos(\frac{t}{2c})
+\end{align*}
+where $c=5$ and $0\leq t \leq 10\pi$.
+
+\item \textit{Sine wave on a sphere}
+\begin{align*}
+x &= \cos(t) \sqrt{b^2 -c^2 \cos^2(at)} \\
+y &= \sin(t) \sqrt{b^2 -c^2 \cos^2(at)} \\
+z &= c*\cos(at)
+\end{align*}
+where $a=10$, $b=1$, $c=0.3$, and $0 \leq t \leq 2\pi$.
+\end{itemize}
+
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
